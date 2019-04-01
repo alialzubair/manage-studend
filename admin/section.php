@@ -36,6 +36,9 @@ include 'actions.php';
      <!-- show all major and manage its -->
      <div class="container">
         <h1 class="text-info text-center">Manage Major</h1>
+        <a href="section.php?do=create" class="btn btn-primary">Add New Section</a>
+        <hr>
+     
 
         <!-- make table to show all major -->
       <div class="table-responsive">

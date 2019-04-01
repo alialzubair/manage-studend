@@ -36,9 +36,11 @@ include 'init.php';
       $row=$stmt->fetchall();
     ?>
      <!-- show all major and manage its -->
+   
      <div class="container">
         <h1 class="text-info text-center">Manage Major</h1>
-
+        <a href="major.php?do=create" class="btn btn-primary">Add New Major </a>
+        <hr>
         <!-- make table to show all major -->
          <div class="table-responsive">
            <table class="table table-hover table-striped">
