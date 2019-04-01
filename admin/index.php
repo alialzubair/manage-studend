@@ -1,70 +1,22 @@
 <?php
 include 'include/header.php';
+
+include 'init.php';
+ include 'actions.php';
+
+ $count_section=rowcount('section');
+ $count_major=rowcount('major');
+//  $count_section=rowcount('section');
 ?>
-    <!-- start navbar -->
-  <nav class="navbar navbar-default">
-      <div class="container">
-          <div class="navbar-header">
-              <button type="button" 
-                 class="navbar-toggle collapsed" data-toggle="collapse"
-                 data-target="#navbar">
-                 <span class="sr-only">Toggle navigation</span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand">AdimStrap</a>    
-          </div>
-          <div class="collapse navbar-collapse" id="navbar">
-              <ul class="nav navbar-nav">
-                  <li class="active"><a href="index.html">Dashbord</a></li>
-                  <li><a href="page.html">Pages</a></li>
-                  <li><a href="post.html">Posts</a></li>
-                  <li><a href="users.html">Users</a></li>
 
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welecme , Ali</a></li>
-                <li><a href="login.html">logout</a></li>
-           
 
-            </ul>
-          </div>
-      </div>
-  </nav>
-  <!-- end navbar -->
 
-  <!-- header -->
-  <header id="header">
-      <div class="container">
-          <div class="row"> 
-              <div class="col-md-10">
-                  <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Dashbord <small>Manager</small></h1>
-              </div>
-              <div class="col-md-2">
-                  <div class="dropdown create">
-                      <button class="btn btn-default carete" id="dropdownMenu1" data-toggle="dropdown">Crreate content
-                          <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                          <li><a type="button" data-toggle="modal" data-target="#addpage">Add pages</a></li>
-                          <li><a href="#">Add Post</a></li>
-                          <li><a href="#">Add User</a></li>
-
-                      </ul>
-
-                  </div>
-              </div>
-          </div>
-      </div>
-
-  </header>
 
   <!-- section of breadcrumd -->
   <section id="breadcrumd">
       <div class="container">
           <ol class="breadcrumd">
-              <li class="active"><a href="">Dashbord</a> </li>
+              <li class="active"><a href="index.php">Dashbord</a> </li>
           </ol>
       </div>
 
@@ -77,8 +29,8 @@ include 'include/header.php';
               <div class="col-md-3">
                   <div class="list-group">
                       <a href="index.html" class="list-group-item active"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashbord</a>
-                      <a href="pages.html" class="list-group-item "><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
-                      <a href="post.html" class="list-group-item "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span class="badge">20</span></a>
+                      <a href="pages.html" class="list-group-item "><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Section <span class="badge"><?php echo $count_section ?></span></a>
+                      <a href="post.html" class="list-group-item "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Major <span class="badge"><?php echo $count_major ?></span></a>
                       <a href="user.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">150</span></a>
 
                   </div>
