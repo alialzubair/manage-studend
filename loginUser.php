@@ -30,8 +30,8 @@ $count=$stmt->rowcount();
 if($count>0){
 	//regster the session
 	$_SESSION['student']=$user; //register session name
-                 $_SESSION['id']=$rows['ID']; // register session id
-            header("location:index.php");
+                 $_SESSION['id_studend']=$rows['ID']; // register session id
+            header("location:profile.php");
             
 	exit();
 }else{
@@ -48,7 +48,7 @@ if($count>0){
 <div class="col-md-12">
  <div class="panel panel-primary">
   <div class="panel-heading"> <strong><i class="glyphicon glyphicon-user"></i> login form</strong>  </div>
-    <form action="login.php" method="post">
+    <form action="loginUser.php" method="post">
 		
 		<div class="panel-body">
        <div class="input-group input-group-lg">

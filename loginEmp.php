@@ -1,13 +1,12 @@
 <?php
 session_start();
-
 include 'init.php';
 	
 	//mak the login 
  
 	if(isset($_POST['login'])){
 		$user=$_POST['username'];
-	 $pass=$_POST['password'];
+	 $pass=sha1($_POST['password']);
 	
 
 		if(empty($user)|| empty($pass)){
@@ -17,11 +16,11 @@ include 'init.php';
 		 //check if users exist in databasee
 	$stmt=$con->prepare("SELECT *                       
                                 from
-                                user
+                                employee_table
                                 where
                                 username=?
                                 and
-                                password=?");
+                                employee_table_pass=?");
 $stmt->execute(array($user,$pass));
 $rows=$stmt->fetch();
 $count=$stmt->rowcount();
@@ -29,9 +28,9 @@ $count=$stmt->rowcount();
 //ckeck the count >0
 if($count>0){
 	//regster the session
-	$_SESSION['student']=$user; //register session name
-                 $_SESSION['id']=$rows['ID']; // register session id
-            header("location:index.php");
+	$_SESSION['user']=$user; //register session name
+                 $_SESSION['id']=$rows['employee_table_id']; // register session id
+            header("location:profile.php");
             
 	exit();
 }else{
@@ -48,7 +47,7 @@ if($count>0){
 <div class="col-md-12">
  <div class="panel panel-primary">
   <div class="panel-heading"> <strong><i class="glyphicon glyphicon-user"></i> login form</strong>  </div>
-    <form action="login.php" method="post">
+    <form action="loginEmp.php" method="post">
 		
 		<div class="panel-body">
        <div class="input-group input-group-lg">
