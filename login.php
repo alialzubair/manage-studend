@@ -30,8 +30,8 @@ $count=$stmt->rowcount();
 if($count>0){
 	//regster the session
 	$_SESSION['student']=$user; //register session name
-                 $_SESSION['id']=$rows['ID']; // register session id
-            header("location:index.php");
+			$_SESSION['id']=$rows['ID']; // register session id
+	header("location:index.php");
             
 	exit();
 }else{

@@ -1,14 +1,15 @@
 <?php
+session_start();
 include "init.php";
-include 'actions.php';
+
 
 //get all booking
-$sql="SELECT booking.*,user.*,hulls.* from booking
-JOIN user on booking.student_id=user.ID
-JOIN hulls on booking.hulls_id=hulls.Hulls_id
+$sql="SELECT appointment.*,user.*,hulls.* from appointment
+JOIN user on appointment.studend_id=user.ID
+JOIN hulls on appointment.hull_id=hulls.Hulls_id
 where user.ID=?";
 $stmt=$con->prepare($sql);
- $stmt->bindvalue(1,$_SESSION['id']);
+ $stmt->bindvalue(1,$_SESSION['id_studend']);
 $stmt->execute();
 
 $row=$stmt->fetchall();

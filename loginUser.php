@@ -7,7 +7,7 @@ include 'init.php';
  
 	if(isset($_POST['login'])){
 		$user=$_POST['username'];
-	 $pass=$_POST['password'];
+	 $pass=sha1($_POST['password']);
 	
 
 		if(empty($user)|| empty($pass)){

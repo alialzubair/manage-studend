@@ -8,9 +8,9 @@ include "init.php";
 
 
 //get all booking
-$sql="SELECT booking.*,user.*,hulls.* from booking
-JOIN user on booking.student_id=user.ID
-JOIN hulls on booking.hulls_id=hulls.Hulls_id
+$sql="SELECT appointment.*,user.*,hulls.* from appointment
+JOIN user on appointment.studend_id=user.ID
+JOIN hulls on appointment.hull_id=hulls.Hulls_id
 where user.ID=?";
 $stmt=$con->prepare($sql);
  $stmt->bindvalue(1,$_SESSION['id_studend']);
@@ -23,7 +23,8 @@ $count=$stmt->rowcount();
 
 ?>
 <div class="container">
-<table class="table table-bordered table-hover">
+<h1 class="text-center text-info">MY Booking</h1>
+<table class="table table-bordered table-condensed table-hover table-striped">
     <tr>
         <td>hull name</td>
         <td>studend name</td>
@@ -36,10 +37,10 @@ $count=$stmt->rowcount();
     <tr>
       <td><?php echo $r['Hulls_name'] ?></td>
       <td><?php echo $r['firstName'] ?> <?php  echo $r['lastName']?></td>
-      <td><?php echo $r['create_at'] ?></td>
+      <td><?php echo $r['Appointment_timestamp'] ?></td>
       <td>
-        <a href="edit_booking.php?id=<?php echo $r['id_booking'] ?>">edit</a>
-        <a href="delete_booking.php?id=<?php echo $r['id_booking'] ?>">delete</a>
+        <a href="edit_booking.php?id=<?php echo $r['Appointment_id'] ?>" class="btn btn-success">edit</a>
+        <a href="delete_booking.php?id=<?php echo $r['Appointment_id'] ?>" class="btn btn-danger" >delete</a>
       </td>
 
     </tr>
@@ -60,19 +61,7 @@ $count=$stmt->rowcount();
         
      }
     ?>
-    <?php foreach($row as $r):?>
-    <tr>
-      <td><?php echo $r['Hulls_name'] ?></td>
-      <td><?php echo $r['firstName'] ?> <?php  echo $r['lastName']?></td>
-      <td><?php echo $r['create_at'] ?></td>
-      <td>
-        <a href="edit_booking.php?id=<?php echo $r['id_booking'] ?>">edit</a>
-        <a href="delete_booking.php?id=<?php echo $r['id_booking'] ?>">delete</a>
-      </td>
-
-    </tr>
-
-<?php endforeach;?>
+   
 </table>
 </div>
 <?php include 'include/footer.php';

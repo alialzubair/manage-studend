@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="layout/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+<script src="layout/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="layout/css/bootstrap.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="layout/css/style.css">
     <title>Document</title>
 </head>
@@ -30,6 +33,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="book.php">Hulls</a></li>
         <li><a href="services.php">services</a></li>
         <li><a href="about.php">About Us</a></li>
         <li><a href="connent.php">connect Us</a></li>
@@ -128,4 +132,6 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-    
+<script src="layout/js/jquery-3.2.1.js"></script>
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/myjs.js"></script>
