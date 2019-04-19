@@ -16,21 +16,20 @@ $stmt->execute();
 $row=$stmt->fetchall();
 //count the data
 $count=$stmt->rowcount();
-echo $count;
-print_r($row);
+
 $major_name= $_GET['name'];
 ?>
 <div class="container">
-<h1><?php echo $major_name?></h1>
-<div class="rows">
-  <div class="col-sm-6 col-md-4">
+<h1 class="text-success text-center"><?php echo $major_name?></h1>
+<div class="">
+  <div class="">
   <?php foreach($row as $r):?>
 
   <div class="thumbnail">
       <div class="caption">
-        <h3><?php echo $r['section_name'] ?></h3>
-        <p><?php  echo $r['descs']?></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <h3><i class="text-danger">Section Name:</i><?php echo $r['section_name'] ?></h3>
+        <p class="lead"><b class="text-danger">Description:</b><?php  echo $r['descs']?></p>
+        <p><a href="coures.php?id=<?php echo $r['section_id'] ?>&name=<?php echo $r['section_name'] ?>" class="btn btn-primary" role="button">Coures</a></p>
       </div>
     </div>
 <?php endforeach;?>

@@ -1,2 +1,2 @@
 <?php
-include 'include/header.php';
+include 'init.php';
