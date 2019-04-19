@@ -39,7 +39,21 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="book.php">Hulls</a></li>
-        <li><a href="services.php">services</a></li>
+        <!-- college -->
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">College<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <!-- get all major form database -->
+    <?php
+      $major=getall('major');
+       //loop throw the major and output  in li
+       foreach($major as $m){?>
+        <li role="separator" class="divider"></li>
+        <li><a href="section.php?id=<?php echo $m['major_id'] ?>&name=<?php echo $m['major_name'] ?>"><?php echo $m['major_name'] ?></a></li>
+<?php }
+    ?>
+  </ul>
+        <!-- end college -->
         <li><a href="about.php">About Us</a></li>
         <li><a href="connent.php">connect Us</a></li>
         

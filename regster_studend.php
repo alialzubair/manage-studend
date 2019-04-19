@@ -82,6 +82,7 @@
 	    <input
             class="form-control"
              type="number"
+						 required
              name="id"
 						 value="<?php if(isset($id)){echo $id;}?>"
 	</div> <!-- form-group end.// -->
@@ -92,17 +93,19 @@
             class="form-control"
              type="text"
              name="username"
+						 required
 						 value="<?php if(isset($username)){echo $username;}?>"
 >
 	</div> <!-- form-group end.// -->
 	<div class="row">
 	<!-- first name -->
-		<div class="col-md-6 form-group first_name">
+		<div class="col-md-6 form-group" >
 			<label>First name </label>   
 		  	<input type="text"                      
-				      class="form-control"
-               placeholder=""
+				      class="form-control name"
+               placeholder="enter your first name"
                name="first_name"
+							 required
 							 value="<?php if(isset($first_name)){echo $first_name;}?>">
 						<div class="text-danger" style="display:none;">first name cannt be larger then <strong>3</strong> characters</div>
 						<div class="text-danger" style="display:none;">
@@ -114,8 +117,9 @@
 			<label>Last name</label>
 		  	<input type="text"                 
 				       class="form-control"
-                placeholder=""
+                placeholder="enter your last name"
                 name="last_name"
+								required
 								value="<?php if(isset($last_name)){echo $last_name;}?>"
 >
 		</div> <!-- form-group end.// -->
@@ -125,8 +129,9 @@
 		<label>Email address</label>
 		<input type="email"
 		       class="form-control" 
-					 placeholder="" 
+					 placeholder="enter your email address" 
 					 name="email"
+					 required
 					 value="<?php if(isset($email)){echo $email;}?>"
 >
 		<small class="text-info text-muted">We'll never share your email with anyone else.</small>
@@ -135,11 +140,20 @@
 	<div class="form-row">
 		<div class="form-group col-md-6">
 		  <label>password</label>
-		  <input type="password" class="form-control" name="pass1">
+		  <input type="password" 
+			       class="form-control" 
+						 placeholder="enter your password" 
+						 required
+						 name="pass1">
 		</div> <!-- form-group end.// -->
 		<div class="form-group col-md-6">
-		<label>Confirem password</label>
-		  <input type="password" class="form-control" name="pass2">
+		<label>confirm password</label>
+		  <input type="password" 
+			       class="form-control" 
+						 name="pass2"
+						 required
+				placeholder="confirm password" 
+>
 		</div> <!-- form-group end.// -->
 	</div> <!-- form-row.// -->
 	
@@ -167,8 +181,9 @@
 		<label>phone</label>
 		<input type="text" 
 		       class="form-control" 
-					 placeholder="" 
+					 placeholder="enter your phone" 
 					 name="phone"
+					 required
 					 value="<?php if(isset($phone)){echo $phone;}?>"
 >
 	</div>
