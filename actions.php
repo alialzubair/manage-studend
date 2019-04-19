@@ -146,3 +146,21 @@ function studend($user){
   
     return $count;
   }
+  //make the function  to check the status account
+  function status($user){
+      
+ global $con;
+ $stmtx=$con->prepare("select username ,status
+                         
+                             from
+                             user
+                             where
+                             username=?
+                             and
+                             status=1");
+ $stmtx->execute(array($user));
+
+ $statues=$stmtx->rowcount();
+return $statues;
+
+  }
