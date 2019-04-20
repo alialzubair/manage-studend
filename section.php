@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'init.php';
 
 //make get request to fetch the section of major

@@ -40,3 +40,9 @@ $coures=$_GET['name'];
 </div>
 </div>
 
+<!-- 
+
+  SELECT major.*,section.*,employee_table.employee_table_name from major
+join section on section.id_major=major.major_id
+join employee_table on employee_table.major_id=major.major_id
+ -->

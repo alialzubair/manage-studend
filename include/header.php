@@ -54,6 +54,39 @@
     ?>
   </ul>
         <!-- end college -->
+         <!-- college employee male -->
+         <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee male<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <!-- get all major form database -->
+    <?php
+      $major=getall('major');
+       //loop throw the major and output  in li
+       foreach($major as $m){?>
+        <li role="separator" class="divider"></li>
+        <li><a href="employee_info_male.php?id=<?php echo $m['major_id'] ?>"><?php echo $m['major_name'] ?></a></li>
+<?php }
+    ?>
+  </ul>
+        <!-- end college employee male -->
+          <!-- college employee female -->
+          <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Female<span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <!-- get all major form database -->
+    <?php
+      $major=getall('major');
+       //loop throw the major and output  in li
+       foreach($major as $m){?>
+        <li role="separator" class="divider"></li>
+        <li><a href="employee_info_female.php?id=<?php echo $m['major_id'] ?>"><?php echo $m['major_name'] ?></a></li>
+<?php }
+    ?>
+  </ul>
+        <!-- end college employee male -->
+        
+       
+        
         <li><a href="about.php">About Us</a></li>
         <li><a href="connent.php">connect Us</a></li>
         
