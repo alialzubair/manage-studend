@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'init.php';
 	
@@ -46,19 +47,19 @@ if($count>0){
 	 <div class="row">
 <div class="col-md-12">
  <div class="panel panel-primary">
-  <div class="panel-heading"> <strong><i class="glyphicon glyphicon-user"></i> login form</strong>  </div>
+  <div class="panel-heading"> <strong><i class="fa fa-user"></i> login form</strong>  </div>
     <form action="loginEmp.php" method="post">
 		
 		<div class="panel-body">
        <div class="input-group input-group-lg">
-	  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-user"></i></span>
+	  <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-user"></i></span>
 	  <input type="text" class="form-control"
 		 placeholder="Username" 
 		 name="username" required
 		 aria-describedby="sizing-addon1">
 	</div>	<br>
 	   <div class="input-group input-group-lg">
-	  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-eye-open"></i></span>
+	  <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-eye"></i></span>
 	  <input type="password" 
 		       class="form-control"
 					 name="password" required

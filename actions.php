@@ -137,7 +137,7 @@ function empl($user){
 //make function to get studend
 function studend($user){
     global $con;
-    $sql="SELECT * from user where username=?  and status='yes'";
+    $sql="SELECT * from user where username=?  and status=1";
     $stmt=$con->prepare($sql);
     $stmt->execute([$user]);
   
@@ -162,5 +162,32 @@ function studend($user){
 
  $statues=$stmtx->rowcount();
 return $statues;
+
+  }
+
+  //make the function male
+  function male($user){
+    global $con;
+    $sql="SELECT * from user where username=?  and gender='male'";
+    $stmt=$con->prepare($sql);
+    $stmt->execute([$user]);
+  
+    
+    $count=$stmt->rowcount();
+  
+    return $count;
+
+  }
+  //make the function female
+  function female($user){
+    global $con;
+    $sql="SELECT * from user where username='{$user}'  and gender='female'";
+    $stmt=$con->prepare($sql);
+    $stmt->execute();
+  
+    
+    $count=$stmt->rowcount();
+  
+    return $count;
 
   }

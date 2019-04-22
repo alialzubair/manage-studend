@@ -54,55 +54,17 @@
     ?>
   </ul>
         <!-- end college -->
-         <!-- college employee male -->
-         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee male<span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <!-- get all major form database -->
-    <?php
-      $major=getall('major');
-       //loop throw the major and output  in li
-       foreach($major as $m){?>
-        <li role="separator" class="divider"></li>
-        <li><a href="employee_info_male.php?id=<?php echo $m['major_id'] ?>"><?php echo $m['major_name'] ?></a></li>
-<?php }
-    ?>
-  </ul>
-        <!-- end college employee male -->
-          <!-- college employee female -->
-          <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Female<span class="caret"></span></a>
-  <ul class="dropdown-menu">
-    <!-- get all major form database -->
-    <?php
-      $major=getall('major');
-       //loop throw the major and output  in li
-       foreach($major as $m){?>
-        <li role="separator" class="divider"></li>
-        <li><a href="employee_info_female.php?id=<?php echo $m['major_id'] ?>"><?php echo $m['major_name'] ?></a></li>
-<?php }
-    ?>
-  </ul>
-        <!-- end college employee male -->
-        
-       
-        
         <li><a href="about.php">About Us</a></li>
         <li><a href="connent.php">connect Us</a></li>
         
          </ul>
+         <!-- start the check account -->
       <?php
-        if(isset($_SESSION['user']) || isset($_SESSION['student'])){
-
-          
-
+        if(isset($_SESSION['user'])){
            //check the admin
-           @$admin=admin($_SESSION['user']);
-           if($admin){?>
-                
+          if(admin($_SESSION['user'])){?>              
 <ul class="nav navbar-nav navbar-right">
 <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['user']; ?></b></a>
- 
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">menu<span class="caret"></span></a>
@@ -112,14 +74,12 @@
     <li role="separator" class="divider"></li>
     <li><a href="logout.php">logout</a></li>
   </ul>
-<?php
-           }
+         <?php }
+        
     //check if employee
-    @$empl=empl($_SESSION['user']);
-    if($empl){?>
+    if(empl($_SESSION['user'])){?>
       <ul class="nav navbar-nav navbar-right">
 <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['user']; ?></b></a>
- 
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
@@ -129,49 +89,89 @@
     <li role="separator" class="divider"></li>
     <li><a href="logout.php">logout</a></li>
   </ul>
-
-    
+    <?php }
       
-   <?php }
+ }
+        // student 
+        elseif(isset($_SESSION['student'])){
+          $status=status($_SESSION['student']);
+          //check the status
+          if($status==0){?>
+                  <ul class="nav navbar-nav navbar-right">
       
-      // studend
-      $status=status($_SESSION['student']);
-      //check the status
-      if($status==0){?>
-              <ul class="nav navbar-nav navbar-right">
-  
-  <li><a href="#" class="alert alert-danger">your account not active yet</a></li>
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li role="separator" class="divider"></li>
-      <li><a href="logout.php">logout</a></li>
-    </ul>
- 
-      <?php }else{
-        @$studend=studend($_SESSION['student']);
-        if($studend){?>
-         <ul class="nav navbar-nav navbar-right">
-  <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['student']; ?></b></a>
-   
-  </li>
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="booking.php">MY Booking</a></li>
-      <li><a href="profile.php">MY Profile</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="logout.php">logout</a></li>
-    </ul>
-  
-      
-  
-       <?php }
-  
-      }
+      <li><a href="#"><p class="text-danger">your account not active yet</p> </a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li role="separator" class="divider"></li>
+          <li><a href="logout.php">logout</a></li>
+        </ul>
      
-         
+          <?php }else{
+            if(studend($_SESSION['student'])){
+              if(male($_SESSION['student'])){?>
+              <!-- show the link  -->
+
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee male<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+            <!-- get all major form database -->
+    <?php
+      $major=getall('major');
+       //loop throw the major and output  in li
+       foreach($major as $m){?>
+        <li role="separator" class="divider"></li>
+        <li><a href="employee_info_male.php?id=<?php echo $m['major_id'] ?>"><?php echo $m['major_name'] ?></a></li>
+<?php }
+    ?>
+       </ul>
+     <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['student']; ?></b></a>
+      
+     </li>
+     <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+         <li><a href="booking.php">MY Booking</a></li>
+         <li><a href="profile.php">MY Profile</a></li>
+         <li role="separator" class="divider"></li>
+         <li><a href="logout.php">logout</a></li>
+       </ul>
+           <?php
+              }
+              if(female($_SESSION['student'])){?>
+                  <!-- show the link  -->
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee female<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+            <!-- get all major form database -->
+    <?php
+      $major=getall('major');
+       //loop throw the major and output  in li
+       foreach($major as $m){?>
+        <li role="separator" class="divider"></li>
+        <li><a href="employee_info_female.php?id=<?php echo $m['major_id'] ?>"><?php echo $m['major_name'] ?></a></li>
+<?php }
+    ?>
+       </ul>
+     <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['student']; ?></b></a>
+      
+     </li>
+     <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
+       <ul class="dropdown-menu">
+         <li><a href="booking.php">MY Booking</a></li>
+         <li><a href="profile.php">MY Profile</a></li>
+         <li role="separator" class="divider"></li>
+         <li><a href="logout.php">logout</a></li>
+       </ul>
+       <?php }
+              
+              }
+          } 
         }
+        //show the link of login and sing up
         else{?>
            <ul class="nav navbar-nav navbar-right">
            <li class="dropdown">
@@ -193,7 +193,6 @@
        <?php }
       
       ?>
-      
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -43,14 +43,7 @@ $count=$stmt->rowcount();
         <a href="#"><?php echo $r['email'] ?></a>
         
    
-        <h3>Dear, How can I help you?</h3>
-  <input type="checkbox" name="check"  > Register courses for students<br>
-  <input type="checkbox" name="check"  > Modify and delete registration tables<br>
-  <input type="checkbox" name="check"  > Organize studying plans for students<br>
-  <input type="checkbox" name="check"  > Help the student in the courses <br>
-  <input type="checkbox" name="check"  > Inquire about academic affairs <br>
-  <input type="checkbox" name="check"  > consultations of Study  <br>
-  <input type="checkbox" name="check"  > Academic guidance<br>
+       
 <br><br>
 <a href="booking_emp.php?id=<?php echo $r['employee_table_id'] ?>" class="btn btn-info">booking</a>
     <hr>
