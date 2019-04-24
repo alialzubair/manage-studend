@@ -40,7 +40,7 @@ $count=$stmt->rowcount();
       <td><?php echo $r['Appointment_timestamp'] ?></td>
       <td>
         <a href="edit_booking.php?id=<?php echo $r['Appointment_id'] ?>" class="btn btn-success">edit</a>
-        <a href="delete_booking.php?id=<?php echo $r['Appointment_id'] ?>" class="btn btn-danger" >delete</a>
+        <a href="delete_booking.php?id=<?php echo $r['Appointment_id'] ?>" class="btn btn-danger confirm" >delete</a>
       </td>
 
     </tr>

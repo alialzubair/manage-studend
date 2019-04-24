@@ -191,3 +191,18 @@ return $statues;
     return $count;
 
   }
+  //function to get hulls
+  function hull($id){
+    global $con;
+    $query = "SELECT time_table.*,hulls.* from time_table
+JOIN hulls on hulls.Hulls_id=time_table.hull_id
+where time_table.time_table_id='{$id}'
+ " ;  
+ $stmt=$con->prepare($query);
+
+ $stmt->execute();
+
+ $fetch=$stmt->fetch();
+ return $fetch;
+ 
+  }

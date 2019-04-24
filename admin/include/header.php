@@ -29,6 +29,8 @@
                   <li><a href="section.php?do=manage">Section</a></li>
                   <li><a href="major.php?do=manage">Major</a></li>
                   <li><a href="users.php">Users</a></li>
+                  <li><a href="employee.php">Employee</a></li>
+                  <li><a href="hulls.php">Hulls</a></li>
 
               </ul>
               <ul class="nav navbar-nav navbar-right">
