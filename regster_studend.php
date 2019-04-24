@@ -3,6 +3,7 @@
  include 'init.php';
  //use function getall to get all data from database
  $major=getall('major');
+ $section=getall('section');
  //insert info to database
  if(isset($_POST['singup'])){
     //set the vars
@@ -17,6 +18,7 @@
     @$gender=$_POST['gender'];
     $phone=$_POST['phone'];
     $majors=$_POST['choose'];
+    $sections=$_POST['section'];
  //make the form errors
  $errors=[];
  if(strlen($first_name)<=3){
@@ -36,7 +38,7 @@
  }
  else{
      //send the data to database
-     $sql="INSERT into user (ID,firstName,lastname,email,mobile,username,password,gender,major) values('{$id}','{$first_name}','{$last_name}','{$email}','{$phone}','{$username}','{$shapass}','{$gender}','{$majors}')";
+     $sql="INSERT into user (ID,firstName,lastname,email,mobile,username,password,gender,major_id,section_id) values('{$id}','{$first_name}','{$last_name}','{$email}','{$phone}','{$username}','{$shapass}','{$gender}','{$majors}','{$sections}')";
      //prepare the sql
      $stmt=$con->prepare($sql);
      //make data
@@ -198,6 +200,17 @@
 		     
 		  </select>
 	</div> <!-- form-group end.// --> 
+		  <!--section-  -->
+			<div class="form-group">
+	<label>Section</label>
+		  <select class="form-control" name="section">
+		    <option> Choose...</option>
+            <?php foreach($section as $m):?>
+            <option value="<?php echo $m['section_id'] ?>"><?php echo $m['section_name'] ?></option>
+            <?php endforeach;?>
+		     
+		  </select>
+	</div>
 	 <!-- regester  -->
     <div class="form-group">
         <button type="submit"  name="singup" class="btn btn-primary btn-block"> Register  </button>

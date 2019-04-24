@@ -57,7 +57,7 @@ include 'init.php';
                    <td><?php echo $r['major_name']?></td>
                    <td>
                      <a href="?do=edit&id=<?php echo $r['major_id']?>" class="btn btn-success">Edit</a>
-                     <a href="?do=delete&id=<?php echo $r['major_id']?>" class="btn btn-danger">Delete</a>
+                     <a href="?do=delete&id=<?php echo $r['major_id']?>" class="btn btn-danger confirm">Delete</a>
                    </td>
                    </tr>
                  <?php endforeach;?>
@@ -79,6 +79,9 @@ include 'init.php';
           <input type="text" 
               name="major_name"  class="form-control">
               <br>
+              <!-- description -->
+              <textarea name="desc"  class="form-control" cols="10" rows="5" ></textarea>
+              <br>
               <!-- button to add -->
         <input type="submit" 
                 name='add'
@@ -87,21 +90,22 @@ include 'init.php';
           </form>
        </div>
        <br>
-      
+    
           
     <?php
     if(isset($_POST['add']))
        {
                     //set the var
             $major_name=filter_var($_POST['major_name'],FILTER_SANITIZE_STRING);
+            $major_desc=filter_var($_POST['desc'],FILTER_SANITIZE_STRING);
            //check the filed not empty
            if(!empty($major_name)){
                //send data to database
-              $sql="INSERT into major (major_name) values(:major_name)";
+              $sql="INSERT into major (major_name,description) values(:major_name,:description)";
               //prepare the query
               $stmt=$con->prepare($sql);
               //execute the query
-              $stmt->execute([':major_name'=>$major_name]);
+              $stmt->execute([':major_name'=>$major_name,'description'=>$major_desc]);
 
                if($stmt){
                    echo '<string class="alert alert-success">major added successfully</string>';

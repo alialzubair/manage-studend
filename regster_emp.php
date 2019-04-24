@@ -119,3 +119,14 @@ else{
 </div>
 
 
+<div class="container">
+    <div class="row">
+    <!-- col-md-8 -->
+       <div class="col-md-8">
+         
+       </div>
+       <!-- col-md-3 -->
+       <div class="col-md-3">
+       </div>
+    </div>
+  </div>

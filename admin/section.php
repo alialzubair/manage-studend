@@ -57,7 +57,7 @@ include 'actions.php';
        <td><?php echo $se['major_name'] ?></td>
        <td>
          <a href="?do=edit&id=<?php echo $se['section_id'] ?>" class="btn btn-success">Edit</a>
-         <a href="?do=delete&id=<?php echo $se['section_id'] ?>" class="btn btn-danger">Delete</a>
+         <a href="?do=delete&id=<?php echo $se['section_id'] ?>" class="btn btn-danger confirm">Delete</a>
        </td>
      </tr>
 

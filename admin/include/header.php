@@ -28,7 +28,7 @@
                   <li class="active"><a href="index.php">Dashbord</a></li>
                   <li><a href="section.php?do=manage">Section</a></li>
                   <li><a href="major.php?do=manage">Major</a></li>
-                  <li><a href="users.html">Users</a></li>
+                  <li><a href="users.php">Users</a></li>
 
               </ul>
               <ul class="nav navbar-nav navbar-right">
@@ -67,7 +67,10 @@
 
   </header>
   <!-- end header -->
+  <script src="layout/js/jquery-3.2.1.js"></script>
 
+<script src="layout/js/bootstrap.min.js"></script>
+<script src="layout/js/js.js"></script>
 
 
   <?php include 'include/footer.php'; ?>
