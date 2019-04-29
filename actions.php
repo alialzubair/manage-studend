@@ -206,3 +206,8 @@ where time_table.time_table_id='{$id}'
  return $fetch;
  
   }
+
+  //redirect page
+  function to($url){
+    return header("location:'{$url}'");
+  }
