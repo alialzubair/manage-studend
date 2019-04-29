@@ -3,7 +3,7 @@
 session_start();
 include 'init.php';
  $query = "SELECT time_table.*,hulls.* from time_table
- JOIN hulls on hulls.Hulls_id=time_table.hull_id where hulls.Hulls_status='open'
+ JOIN hulls on hulls.Hulls_id=time_table.hull_id where hulls.Hulls_status='open'  ORDER BY `hulls`.`Hulls_id` desc
  " ;  
  $stmt=$con->prepare($query);
 

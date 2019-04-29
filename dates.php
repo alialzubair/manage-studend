@@ -15,6 +15,31 @@ $stmt=$con->prepare($sql);
 //execute the query
 $stmt->execute();
 //fetch data
-$row=$stmt->fetch();
- print_r($row);
+$row=$stmt->fetchall();
+
 ?>
+<div class="container">
+  <h1 class="text-center">Manage My Dates</h1>
+  <table class="table table-bordered table-condensed table-hover table-striped"> 
+    <tr>
+        <td>ID</td>
+        <td>Service</td>
+        <td>Student Name</td>
+        <td>Service Date</td>
+        <td>Controle</td>
+    </tr>
+    <?php foreach($row as $r): ?>
+    <tr>
+        <td><?php echo  $r['id'] ?></td>
+        <td><?php echo  $r['servse'] ?></td>
+        <td><?php echo  $r['firstName'] ?><?php echo $r['lastName'] ?></td>
+        <td><?php echo $r['create_at'] ?></td>
+        <td>
+         <a href="?do=active&id=<?php echo $r['id'] ?>"><i class="fa fa-edit fa-3x"></i></a>
+         <a href="?do=delete&id=<?php echo $r['id'] ?>"><i class="fa fa-remove fa-3x"></i></a>
+        </td>
+    </tr>
+<?php endforeach;?>
+   </table>
+
+</div>
