@@ -3,7 +3,7 @@
 session_start();
 include 'init.php';
  $query = "SELECT time_table.*,hulls.* from time_table
- JOIN hulls on hulls.Hulls_id=time_table.hull_id
+ JOIN hulls on hulls.Hulls_id=time_table.hull_id where hulls.Hulls_status='open'
  " ;  
  $stmt=$con->prepare($query);
 
@@ -66,6 +66,7 @@ include 'init.php';
      <td><?php echo $row["time_table_start_time"]; ?></td> 
      <td><?php echo $row["time_table_end_time"]; ?></td> 
      <td>
+       <!-- check the  -->
           <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
      </td> 
       </tr>

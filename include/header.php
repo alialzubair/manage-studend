@@ -84,7 +84,7 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
   <ul class="dropdown-menu">
-    <li><a href="ordres.php">MY Orders</a></li>
+    <li><a href="dates.php">MY Orders</a></li>
     <li><a href="profile.php">MY Profile</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="logout.php">logout</a></li>

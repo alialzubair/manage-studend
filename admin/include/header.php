@@ -31,6 +31,7 @@
                   <li><a href="users.php">Users</a></li>
                   <li><a href="employee.php">Employee</a></li>
                   <li><a href="hulls.php">Hulls</a></li>
+                  <li><a href="manage_hulls.php">Manage Hulls</a></li>
 
               </ul>
               <ul class="nav navbar-nav navbar-right">
