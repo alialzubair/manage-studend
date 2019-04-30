@@ -6,7 +6,7 @@ include 'init.php';
 //make get request to fetch the section of major
 $id=isset($_GET['id'])&& is_numeric($_GET['id'])?intval($_GET['id']):0;
 //fetch all section where major = id
-$sql="select section.*, major.major_name,major.descs from section
+$sql="select section.*, major.major_name,major.description from section
 JOIN major on  
 section.id_major=major.major_id
 where major.major_id= '{$id}' ";

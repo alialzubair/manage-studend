@@ -38,7 +38,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.php">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="book.php">Hulls</a></li>
         <!-- college -->
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">College<span class="caret"></span></a>
@@ -112,8 +111,10 @@
             if(studend($_SESSION['student'])){
               if(male($_SESSION['student'])){?>
               <!-- show the link  -->
-
+              
                 <ul class="nav navbar-nav navbar-right">
+                <li><a href="book_male.php">Hulls</a></li>
+
                 <li class="dropdown">
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee male<span class="caret"></span></a>
        <ul class="dropdown-menu">
@@ -130,6 +131,15 @@
      <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['student']; ?></b></a>
       
      </li>
+     <?php if(accept($_SESSION['id_studend'])>0):?>
+     <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-1x"></i><span class="caret"></span></a>
+       <ul class="dropdown-menu">
+         <li><a href="#">Your Order Accept</a></li>
+       </ul>
+    
+      <?php endif;?>
+
      <li class="dropdown">
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
        <ul class="dropdown-menu">
@@ -143,6 +153,7 @@
               if(female($_SESSION['student'])){?>
                   <!-- show the link  -->
                 <ul class="nav navbar-nav navbar-right">
+                <li><a href="book_female.php">Hulls</a></li>
                 <li class="dropdown">
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee female<span class="caret"></span></a>
        <ul class="dropdown-menu">
@@ -159,6 +170,14 @@
      <li><a href="profile.php"><b class="text-danger">welcome</b> <b class="text-info"><?php echo $_SESSION['student']; ?></b></a>
       
      </li>
+     <?php if(accept($_SESSION['id_studend'])>0):?>
+     <li class="dropdown">
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-1x"></i><span class="caret"></span></a>
+       <ul class="dropdown-menu">
+         <li><a href="#">Your Order Accept</a></li>
+       </ul>
+    
+      <?php endif;?>
      <li class="dropdown">
        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
        <ul class="dropdown-menu">

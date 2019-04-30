@@ -225,3 +225,13 @@ where time_table.time_table_id='{$id}'
   function to($url){
     return header("location:'{$url}'");
   }
+  
+//function to accept order
+function accept($user){
+ global $con;
+ $sql="SELECT * from booking_emp where student_id='{$user}' and status=1";
+ $stmt=$con->prepare($sql);
+ $stmt->execute();
+ $count=$stmt->rowcount();
+ return $count;
+}

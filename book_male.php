@@ -3,16 +3,16 @@
 session_start();
 include 'init.php';
  $query = "SELECT time_table.*,hulls.* from time_table
- JOIN hulls on hulls.Hulls_id=time_table.hull_id where hulls.Hulls_status='open'  ORDER BY `hulls`.`Hulls_id` desc
+ JOIN hulls on hulls.Hulls_id=time_table.hull_id where hulls.Hulls_status='open' and Hulls.section='male'  ORDER BY `hulls`.`Hulls_id` desc
  " ;  
  $stmt=$con->prepare($query);
 
  $stmt->execute();
 
  $fetch=$stmt->fetchall();
-
+//use the function singlecount to count row of booking student
     $count_booking=singelCount('appointment','studend_id',$_SESSION['id_studend']);
-echo $count_booking;
+
  
  ?>  
 
@@ -68,7 +68,12 @@ echo $count_booking;
      <td><?php echo $row["time_table_end_time"]; ?></td> 
      <td>
        <!-- check the count > 0 -->
-          <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
+       <?php if($count_booking>0): ?>
+       <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
+<?php else:?>
+<a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
+
+     <?php endif;?>
      </td> 
       </tr>
       </tbody>
