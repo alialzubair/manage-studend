@@ -35,6 +35,20 @@
      //return the data
      return $fetch;
  }
+ //get thesiangle count data
+ function singelCount($table ,$filed,$id){
+    global $con;
+ $query="SELECT * from {$table} where {$filed}={$id}";
+     //prepare the query
+     $stmt=$con->prepare($query);
+     //execute the query
+     $stmt->execute();
+     //fetch all data
+     $fetch=$stmt->rowcount();
+   
+     //return the data
+     return $fetch;
+ }
 
  //make the row count
  function rowCount($table){

@@ -11,7 +11,8 @@ include 'init.php';
 
  $fetch=$stmt->fetchall();
 
-    
+    $count_booking=singelCount('appointment','studend_id',$_SESSION['id_studend']);
+echo $count_booking;
  
  ?>  
 
@@ -66,7 +67,7 @@ include 'init.php';
      <td><?php echo $row["time_table_start_time"]; ?></td> 
      <td><?php echo $row["time_table_end_time"]; ?></td> 
      <td>
-       <!-- check the  -->
+       <!-- check the count > 0 -->
           <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
      </td> 
       </tr>
