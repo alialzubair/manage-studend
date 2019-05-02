@@ -3,7 +3,7 @@ ob_start();
 session_start();
 include 'init.php';
  $id=isset($_GET['id'])&& is_numeric($_GET['id'])?intval($_GET['id']):0;
-
+$msg='';
  //make the query to get emp
  $sql="SELECT * from employee_table where employee_table_id='{$id}'";
  //prepare the sql
@@ -29,12 +29,14 @@ if(isset($_POST['booking'])){
   //execute the query
   $stmt->execute();
   if($stmt){
-      echo 'booking successfully';
+      $msg= '<div class="alert alert-info">booking successfully</div>';
+      header("refresh:3");
   }
 }
 
 ?>
 <div class="container">
+<div class=""><?php echo $msg; ?></div>
 <h3>Dear, How can I help you?</h3>
       <form action="booking_emp.php?id=<?php echo $id ?>" method="post">
       <input type="checkbox" name="check[]" value='Register courses for students' > Register courses for students<br>

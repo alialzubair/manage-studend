@@ -69,7 +69,7 @@ include 'init.php';
      <td>
        <!-- check the count > 0 -->
        <?php if($count_booking>0): ?>
-       <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
+       <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success" disabled>booking</a>
 <?php else:?>
 <a href="add_booking.php?id=<?php echo $row['time_table_id'] ?>" class="btn btn-success">booking</a>
 

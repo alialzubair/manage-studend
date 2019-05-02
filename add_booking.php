@@ -4,9 +4,10 @@ include 'init.php';
 
 
 $id=isset($_GET['id'])&& is_numeric($_GET['id'])?intval($_GET['id']):0;
-      
+$msg='';     
 ?>
  <div class="container">
+    <div class=""><?php  echo $msg; ?></div>
      <form method="post" action="add_booking.php?id=<?php echo $id?>">
        
       <label>Enter your massage</label>
@@ -31,7 +32,7 @@ if(isset($_POST['insert'])){
  $stmt=$con->prepare($sql);
  $stmt->execute();
  if($stmt){
-   echo 'add';
+   $msg= '<div class="alert alert-info">Your Booking Added Successfully</div>';
  }
 }
 

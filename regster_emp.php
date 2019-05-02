@@ -20,7 +20,7 @@ if(isset($_POST['singup'])){
 else{
 		//send the data to database
 		$sql="INSERT into employee_table (employee_table_pass
-		,employee_table_name,email,major,gender,username,address,phone) values('{$shapass}','{$full_name}','{$email}','{$majors}','{$gender}','{$username}','{$address}','{$phone}')";
+		,employee_table_name,email,major_id,gender,username,address,phone) values('{$shapass}','{$full_name}','{$email}','{$majors}','{$gender}','{$username}','{$address}','{$phone}')";
 		//prepare the sql
 		$stmt=$con->prepare($sql);
 		//make data

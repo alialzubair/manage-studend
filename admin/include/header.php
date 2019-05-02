@@ -35,8 +35,8 @@
 
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welecme , Ali</a></li>
-                <li><a href="login.html">logout</a></li>
+                <li><a href="#">Welecme , <?php echo $_SESSION['user'] ?></a></li>
+                <li><a href="../index.php">Back to Home</a></li>
            
 
             </ul>
@@ -53,13 +53,13 @@
               </div>
               <div class="col-md-2">
                   <div class="dropdown create">
-                      <button class="btn btn-default carete" id="dropdownMenu1" data-toggle="dropdown">Create Account
+                      <button class="btn btn-default carete" id="dropdownMenu1" data-toggle="dropdown">Approve Hulls
                           <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                          <li><a type="button" data-toggle="modal" data-target="#addpage">Add Teacher</a></li>
-                          <li><a href="#">Add Student</a></li>
-                          <li><a href="#">Add User</a></li>
+                          <!-- <li><a type="button" data-toggle="modal" data-target="#addpage">Add Teacher</a></li> -->
+                          <li><a href="approve_hulls.php">Show Order</a></li>
+                          <li><a href="list_approve_hulls.php">List Approve Hulls</a></li>
 
                       </ul>
 

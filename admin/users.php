@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 //include the header page 
 include 'include/header.php';
 include 'init.php';
