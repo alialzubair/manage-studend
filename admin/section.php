@@ -157,7 +157,7 @@ if(isset($_POST['add'])){
       <!-- make the form to add major name -->
        <div class="container">
           <form action="section.php?do=edit" method="post">
-          <input type="hidden" value="<?php echo  $edit['section_id'] ?>">
+          <input type="hidden" name="id" value="<?php echo  $edit['section_id'] ?>">
           <input type="text" 
               name="section_name" 
               value="<?php echo  $edit['section_name'] ?>"
